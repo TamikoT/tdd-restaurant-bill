@@ -8,7 +8,7 @@ describe "RestaurantBill class" do
     it "Creates a new instance of Restaurant Bill class" do
       bill = RestaurantBill.new
       bill.must_be_kind_of RestaurantBill
-    end
+    endo
     it "Returns an empty Array for items_ordered" do
       bill = RestaurantBill.new
       bill.ordered_items.must_be_kind_of Array
@@ -51,6 +51,22 @@ describe "RestaurantBill class" do
       expected = [["steak", 35], ["side salad", 5], ["dessert", 9]]
       all_ordered = bill.ordered_items
       all_ordered.must_equal expected
+    end
+  end
+  describe "Account#total" do
+    it "Returns the total plus tax" do
+
+    end
+  end
+  describe "Account#tip" do
+    it "Returns the total with a tip" do
+    end
+  end
+  describe "Account#print" do
+    it "Returns an array of strings" do
+
+    end
+    it "Contains the bill, tax, and tip amounts" do
     end
   end
 end
