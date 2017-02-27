@@ -9,9 +9,10 @@ describe "RestaurantBill class" do
       bill = RestaurantBill.new
       bill.must_be_kind_of RestaurantBill
     end
-    it "Returns an empty Arry for items_ordered" do
+    it "Returns an empty Array for items_ordered" do
       bill = RestaurantBill.new
       bill.ordered_items.must_be_kind_of Array
+      bill.ordered_items.length.must_equal 0
     end
   end
 
