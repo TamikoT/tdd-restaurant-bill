@@ -16,8 +16,36 @@ describe "RestaurantBill class" do
       bill = RestaurantBill.new
       item = "steak"
       cost = 35
-      ordered = bill.order_item(item, cost)
-      ordered.must_be_kind_of Array
+      with_1 = bill.order_item(item, cost)
+      bill.ordered_items.must_be_kind_of Array
+    end
+
+    it "When run twice, there are 2 ordered items" do
+      bill = RestaurantBill.new
+      item1 = "steak"
+      cost1 = 35
+      item2 = "side salad"
+      cost2 = 5
+      with_1 = bill.order_item(item1, cost1)
+      with_2 = bill.order_item(item2, cost2)
+      expected_value = 2
+      bill.ordered_items.length.must_equal expected_value
+    end
+
+    it "Returns three orders correctly" do
+      bill = RestaurantBill.new
+      item1 = "steak"
+      cost1 = 35
+      item2 = "side salad"
+      cost2 = 5
+      item3 = "dessert"
+      cost3 = 9
+      with_1 = bill.order_item(item1, cost1)
+      with_2 = bill.order_item(item2, cost2)
+      with_3 = bill.order_item(item3, cost3)
+      expected = [["steak", 35], ["side salad", 5], ["dessert", 9]]
+      all_ordered = bill.ordered_items
+      all_ordered.must_equal expected
     end
   end
 end
