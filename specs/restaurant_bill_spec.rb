@@ -54,19 +54,33 @@ describe "RestaurantBill class" do
     end
   end
   describe "Account#total" do
+  skip
     it "Returns the total plus tax" do
-
+      bill = RestaurantBill.new
+      cost1 = 35
+      cost2 = 5
+      bill.order_item("steak", cost1)
+      bill.order_item("side salad", cost2)
+      expected_total = cost1 + cost2
+      expected_value = expected_total + (expected_total)*TAX/100
+      Account.total.must_equal expected
     end
   end
-  describe "Account#tip" do
-    it "Returns the total with a tip" do
-    end
-  end
-  describe "Account#print" do
-    it "Returns an array of strings" do
-
-    end
-    it "Contains the bill, tax, and tip amounts" do
-    end
-  end
+  # describe "Account#tip" do
+  #   it "Returns the total with a tip" do
+  #   end
+  # end
+  # describe "Account#print" do
+  #   it "Returns an array of strings" do
+  #
+  #   end
+  #   it "Contains the bill, tax, and tip amounts" do
+  #   end
+  # end
 end
+
+# PARAMETERS:
+# - A method that returns a total of all the item's costs combined, with tax
+# - A method to add a tip. Returns total with tip.
+# - A way to see the final cost of a bill, with tax and tip
+# - The class should have the following attributes: ordered_items, tip and total
