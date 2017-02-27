@@ -9,6 +9,10 @@ describe "RestaurantBill class" do
       bill = RestaurantBill.new
       bill.must_be_kind_of RestaurantBill
     end
+    it "Returns an empty Arry for items_ordered" do
+      bill = RestaurantBill.new
+      bill.ordered_items.must_be_kind_of Array
+    end
   end
 
   describe "Account#order_item" do
