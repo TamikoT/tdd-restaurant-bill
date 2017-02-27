@@ -55,15 +55,14 @@ describe "RestaurantBill class" do
   end
   describe "Account#total" do
     it "Returns the total plus tax" do
-      skip
       bill = RestaurantBill.new
       cost1 = 35
       cost2 = 5
       bill.order_item("steak", cost1)
       bill.order_item("side salad", cost2)
       expected_total = cost1 + cost2
-      expected_value = expected_total + (expected_total)*TAX/100
-      Account.total.must_equal expected
+      expected_value = expected_total + expected_total*9.45/100
+      bill.total.must_equal expected_value
     end
   end
   # describe "Account#tip" do
